@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/adshao/go-binance/v2/common"
+	"github.com/DaanDD/go-binance/v2/common"
 )
 
 // PremiumIndexService get premium index
@@ -21,7 +21,10 @@ func (s *PremiumIndexService) Symbol(symbol string) *PremiumIndexService {
 }
 
 // Do send request
-func (s *PremiumIndexService) Do(ctx context.Context, opts ...RequestOption) (res []*PremiumIndex, err error) {
+func (s *PremiumIndexService) Do(
+	ctx context.Context,
+	opts ...RequestOption,
+) (res []*PremiumIndex, err error) {
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/fapi/v1/premiumIndex",
@@ -86,7 +89,10 @@ func (s *FundingRateService) Limit(limit int) *FundingRateService {
 }
 
 // Do send request
-func (s *FundingRateService) Do(ctx context.Context, opts ...RequestOption) (res []*FundingRate, err error) {
+func (s *FundingRateService) Do(
+	ctx context.Context,
+	opts ...RequestOption,
+) (res []*FundingRate, err error) {
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/fapi/v1/fundingRate",
@@ -135,7 +141,10 @@ func (s *GetLeverageBracketService) Symbol(symbol string) *GetLeverageBracketSer
 }
 
 // Do send request
-func (s *GetLeverageBracketService) Do(ctx context.Context, opts ...RequestOption) (res []*LeverageBracket, err error) {
+func (s *GetLeverageBracketService) Do(
+	ctx context.Context,
+	opts ...RequestOption,
+) (res []*LeverageBracket, err error) {
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/fapi/v1/leverageBracket",

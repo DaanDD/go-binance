@@ -14,7 +14,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/adshao/go-binance/v2/common"
+	"github.com/DaanDD/go-binance/v2/common"
 	"github.com/bitly/go-simplejson"
 )
 
@@ -275,7 +275,11 @@ func (c *Client) parseRequest(r *request, opts ...RequestOption) (err error) {
 	return nil
 }
 
-func (c *Client) callAPI(ctx context.Context, r *request, opts ...RequestOption) (data []byte, err error) {
+func (c *Client) callAPI(
+	ctx context.Context,
+	r *request,
+	opts ...RequestOption,
+) (data []byte, err error) {
 	err = c.parseRequest(r, opts...)
 	if err != nil {
 		return []byte{}, err

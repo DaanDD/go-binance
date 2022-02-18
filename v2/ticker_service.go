@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/adshao/go-binance/v2/common"
+	"github.com/DaanDD/go-binance/v2/common"
 )
 
 // ListBookTickersService list best price/qty on the order book for a symbol or symbols
@@ -21,7 +21,10 @@ func (s *ListBookTickersService) Symbol(symbol string) *ListBookTickersService {
 }
 
 // Do send request
-func (s *ListBookTickersService) Do(ctx context.Context, opts ...RequestOption) (res []*BookTicker, err error) {
+func (s *ListBookTickersService) Do(
+	ctx context.Context,
+	opts ...RequestOption,
+) (res []*BookTicker, err error) {
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/api/v3/ticker/bookTicker",
@@ -64,7 +67,10 @@ func (s *ListPricesService) Symbol(symbol string) *ListPricesService {
 }
 
 // Do send request
-func (s *ListPricesService) Do(ctx context.Context, opts ...RequestOption) (res []*SymbolPrice, err error) {
+func (s *ListPricesService) Do(
+	ctx context.Context,
+	opts ...RequestOption,
+) (res []*SymbolPrice, err error) {
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/api/v3/ticker/price",
@@ -98,13 +104,18 @@ type ListPriceChangeStatsService struct {
 }
 
 // Symbol set symbol
-func (s *ListPriceChangeStatsService) Symbol(symbol string) *ListPriceChangeStatsService {
+func (s *ListPriceChangeStatsService) Symbol(
+	symbol string,
+) *ListPriceChangeStatsService {
 	s.symbol = &symbol
 	return s
 }
 
 // Do send request
-func (s *ListPriceChangeStatsService) Do(ctx context.Context, opts ...RequestOption) (res []*PriceChangeStats, err error) {
+func (s *ListPriceChangeStatsService) Do(
+	ctx context.Context,
+	opts ...RequestOption,
+) (res []*PriceChangeStats, err error) {
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/api/v3/ticker/24hr",
@@ -161,7 +172,10 @@ func (s *AveragePriceService) Symbol(symbol string) *AveragePriceService {
 }
 
 // Do send request
-func (s *AveragePriceService) Do(ctx context.Context, opts ...RequestOption) (res *AvgPrice, err error) {
+func (s *AveragePriceService) Do(
+	ctx context.Context,
+	opts ...RequestOption,
+) (res *AvgPrice, err error) {
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/api/v3/avgPrice",
