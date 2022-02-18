@@ -289,7 +289,11 @@ func (c *Client) parseRequest(r *request, opts ...RequestOption) (err error) {
 	return nil
 }
 
-func (c *Client) callAPI(ctx context.Context, r *request, opts ...RequestOption) (data []byte, err error) {
+func (c *Client) callAPI(
+	ctx context.Context,
+	r *request,
+	opts ...RequestOption,
+) (data []byte, err error) {
 	err = c.parseRequest(r, opts...)
 	if err != nil {
 		return []byte{}, err
@@ -694,6 +698,11 @@ func (c *Client) NewAssetDividendService() *AssetDividendService {
 // NewUserUniversalTransferService
 func (c *Client) NewUserUniversalTransferService() *CreateUserUniversalTransferService {
 	return &CreateUserUniversalTransferService{c: c}
+}
+
+// NewMasterUniversalTransferService
+func (c *Client) NewMasterUniversalTransferService() *CreateMasterUniversalTransferService {
+	return &CreateMasterUniversalTransferService{c: c}
 }
 
 // NewAllCoinsInformation
