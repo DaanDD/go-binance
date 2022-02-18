@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/adshao/go-binance/v2/common"
+	"github.com/DaanDD/go-binance/v2/common"
 )
 
 // DepthService show depth info
@@ -27,7 +27,10 @@ func (s *DepthService) Limit(limit int) *DepthService {
 }
 
 // Do send request
-func (s *DepthService) Do(ctx context.Context, opts ...RequestOption) (res *DepthResponse, err error) {
+func (s *DepthService) Do(
+	ctx context.Context,
+	opts ...RequestOption,
+) (res *DepthResponse, err error) {
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/fapi/v1/depth",
